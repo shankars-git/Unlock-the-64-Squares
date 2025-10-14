@@ -3,75 +3,500 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unlock the 64 Squares</title>
+    <title>Unlock the 64 Squares - Chess Learning Platform</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <div class="logo-section">
-            <span class="logo">♟</span>
-            <span class="brand">Unlock the 64 Squares</span>
-        </div>
-        <div class="nav-links">
-            <a href="#" class="active">Discover</a>
-            <a href="#">My Plan</a>
-            <a href="#">Goals</a>
-            <a href="#">Progress</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <div class="logo">♟</div>
+                <span class="brand-name">Unlock the 64 Squares</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link" onclick="showPage('home')">Discover</a>
+                <a href="#plan" class="nav-link" onclick="showPage('plan')">My Plan</a>
+                <a href="#goals" class="nav-link" onclick="showPage('goals')">Goals</a>
+                <a href="#progress" class="nav-link" onclick="showPage('progress')">Progress</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Main Section Example: Discover Page -->
-    <main>
-        <section class="discover">
-            <h2>Discover &rarr; Endgames</h2>
-            <div class="content-grid">
-                <div class="featured-card">
-                    <span class="badge badge-advanced">ADVANCED</span>
-                    <span class="duration">25 min</span>
-                    <div class="play-btn"></div>
-                    <div class="info">
-                        <h3>Master Rook Endgames</h3>
-                        <p>Learn essential rook endgame techniques including the Lucena position, Philidor defense, and key theoretical draws. Perfect your technique with practical examples from grandmaster games.</p>
-                    </div>
+    <!-- Home/Landing Page -->
+    <div id="home" class="page-content active">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Ready to Master Your Next Move?</h1>
+                <p class="hero-subtitle">Continue your chess journey with personalized lessons,<br>and expert guidance tailored to your skill level.</p>
+                <div class="chess-pieces-display">
+                    <span class="piece">♚</span>
+                    <span class="piece">♛</span>
+                    <span class="piece">♜</span>
+                    <span class="piece">♝</span>
+                    <span class="piece">♞</span>
                 </div>
-                <aside class="suggested-content">
-                    <h3>Suggested Contents</h3>
-                    <ul>
-                        <li class="suggestion-item">Opposite Colored Bishops <span>12:30</span></li>
-                        <li class="suggestion-item">Rook vs Minor Piece <span>16:45</span></li>
-                        <li class="suggestion-item">Two Rooks vs Queen <span>20:10</span></li>
-                        <li class="suggestion-item">Practical Endgame Tips <span>14:20</span></li>
-                    </ul>
-                    <button class="btn-explore">Explore All Lessons</button>
-                </aside>
-            </div>
-
-            <h3>More Videos</h3>
-            <div class="video-grid">
-                <div class="video-card beginner">
-                    <div class="thumbnail"></div>
-                    <div class="video-info">
-                        <h4>King and Pawn Endgames</h4>
-                        <p>Essential moves and positions</p>
-                    </div>
-                </div>
-                <div class="video-card intermediate">
-                    <div class="thumbnail"></div>
-                    <div class="video-info">
-                        <h4>Queen vs Rook Endgames</h4>
-                        <p>Winning strategies and defenses</p>
-                    </div>
-                </div>
-                <div class="video-card advanced">
-                    <div class="thumbnail"></div>
-                    <div class="video-info">
-                        <h4>Bishop vs Knight Endings</h4>
-                        <p>Understanding piece imbalances</p>
-                    </div>
-                </div>
+                <div class="pawn-display">♟</div>
+                <button class="btn-primary" onclick="showPage('discover')">Continue Learning →</button>
             </div>
         </section>
-    </main>
+    </div>
+
+    <!-- Discover Page -->
+    <div id="discover" class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <h2 class="page-title">Discover</h2>
+                <p class="breadcrumb">Discover → Endgames</p>
+            </div>
+
+            <div class="main-grid">
+                <div class="main-content">
+                    <!-- Featured Video -->
+                    <div class="featured-video">
+                        <span class="badge badge-advanced">ADVANCED</span>
+                        <span class="video-duration">⏱ 25 min</span>
+                        <div class="play-button">
+                            <div class="play-icon">▶</div>
+                        </div>
+                        <div class="video-details">
+                            <h3>Master Rook Endgames</h3>
+                            <p>Learn essential rook endgame techniques including the Lucena position, Philidor defense, and key theoretical draws. Perfect your technique with practical examples from grandmaster games.</p>
+                        </div>
+                    </div>
+
+                    <!-- More Videos Section -->
+                    <h3 class="section-title">More Videos</h3>
+                    <div class="video-grid">
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <span class="badge badge-beginner">BEGINNER</span>
+                                <span class="thumb-duration">5:42</span>
+                                <div class="play-overlay">▶</div>
+                            </div>
+                            <div class="video-info">
+                                <h4>King and Pawn Endgames</h4>
+                                <p>Essential moves and positions</p>
+                                <div class="video-meta">
+                                    <span class="rating">★★★★☆</span>
+                                    <span class="views">7k views</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <span class="badge badge-intermediate">INTERMEDIATE</span>
+                                <span class="thumb-duration">12:16</span>
+                                <div class="play-overlay">▶</div>
+                            </div>
+                            <div class="video-info">
+                                <h4>Queen vs Rook Endgames</h4>
+                                <p>Winning strategies and defenses</p>
+                                <div class="video-meta">
+                                    <span class="rating">★★★★★</span>
+                                    <span class="views">6.5k views</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <span class="badge badge-advanced">ADVANCED</span>
+                                <span class="thumb-duration">18:35</span>
+                                <div class="play-overlay">▶</div>
+                            </div>
+                            <div class="video-info">
+                                <h4>Bishop vs Knight Endings</h4>
+                                <p>Understanding piece imbalances</p>
+                                <div class="video-meta">
+                                    <span class="rating">★★★★☆</span>
+                                    <span class="views">6.5k views</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="suggested-box">
+                        <div class="sidebar-header">
+                            <h3>Suggested Contents</h3>
+                            <span class="icon-toggle">≡</span>
+                        </div>
+                        <div class="suggestion-list">
+                            <div class="suggestion-item">
+                                <div class="suggestion-icon">♗</div>
+                                <div class="suggestion-details">
+                                    <h4>Opposite Colored Bishops</h4>
+                                    <p>Advanced • 1.3k views</p>
+                                </div>
+                                <span class="suggestion-time">12:30</span>
+                            </div>
+                            <div class="suggestion-item">
+                                <div class="suggestion-icon">♜</div>
+                                <div class="suggestion-details">
+                                    <h4>Rook vs Minor Piece</h4>
+                                    <p>Intermediate • 2.1k views</p>
+                                </div>
+                                <span class="suggestion-time">16:45</span>
+                            </div>
+                            <div class="suggestion-item">
+                                <div class="suggestion-icon">♜</div>
+                                <div class="suggestion-details">
+                                    <h4>Two Rooks vs Queen</h4>
+                                    <p>Advanced • 4.8k views</p>
+                                </div>
+                                <span class="suggestion-time">20:10</span>
+                            </div>
+                            <div class="suggestion-item">
+                                <div class="suggestion-icon">♙</div>
+                                <div class="suggestion-details">
+                                    <h4>Practical Endgame Tips</h4>
+                                    <p>Beginner • 9.7k views</p>
+                                </div>
+                                <span class="suggestion-time">14:20</span>
+                            </div>
+                        </div>
+                        <button class="btn-explore">Explore All Lessons</button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <!-- My Plan Page -->
+    <div id="plan" class="page-content">
+        <div class="container">
+            <h2 class="page-title">My Weekly Plan</h2>
+
+            <div class="plan-grid">
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <div class="plan-icon">♜</div>
+                        <span class="badge badge-intermediate">INTERMEDIATE</span>
+                    </div>
+                    <h3>Rook Endgame</h3>
+                    <div class="plan-meta">
+                        <span class="time-info">⏱ 65 min</span>
+                        <span class="status-info in-progress">In Progress</span>
+                    </div>
+                    <button class="btn-continue">Continue Learning</button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <div class="plan-icon">♛</div>
+                        <span class="badge badge-advanced">ADVANCED</span>
+                    </div>
+                    <h3>Queens Gambit</h3>
+                    <div class="plan-meta">
+                        <span class="time-info">⏱ 30 min</span>
+                        <span class="status-info not-started">Not Started</span>
+                    </div>
+                    <button class="btn-start">Start Now</button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <div class="plan-icon">⚔</div>
+                        <span class="badge badge-beginner">BEGINNER</span>
+                    </div>
+                    <h3>Opening Tactics</h3>
+                    <div class="plan-meta">
+                        <span class="time-info">⏱ 20 min</span>
+                        <span class="status-info not-started">Not Started</span>
+                    </div>
+                    <button class="btn-start">Start Now</button>
+                </div>
+            </div>
+
+            <h3 class="section-title">Recommended</h3>
+            <div class="recommended-grid">
+                <div class="recommended-card">
+                    <div class="rec-icon">♟</div>
+                    <h4>Pawn Endgames</h4>
+                    <p>Master essential pawn endgame theory</p>
+                    <div class="rating">★★★★★</div>
+                    <button class="btn-add">+ Add to Plan</button>
+                </div>
+
+                <div class="recommended-card">
+                    <div class="rec-icon">♔</div>
+                    <h4>Kings Indian Opening</h4>
+                    <p>Learn this dynamic opening system</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn-add">+ Add to Plan</button>
+                </div>
+
+                <div class="recommended-card">
+                    <div class="rec-icon">🛡</div>
+                    <h4>Caro-Kann Defense</h4>
+                    <p>Solid opening against 1.e4</p>
+                    <div class="rating">★★★★☆</div>
+                    <button class="btn-add">+ Add to Plan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Goals Page -->
+    <div id="goals" class="page-content">
+        <div class="container">
+            <h2 class="page-title">Goals</h2>
+
+            <div class="goals-layout">
+                <div class="goals-main">
+                    <div class="goals-section">
+                        <h3 class="section-title">Goal Progress</h3>
+                        <div class="goal-item">
+                            <div class="goal-header">
+                                <div class="goal-icon">♜</div>
+                                <div class="goal-info">
+                                    <h4>Master Rook Endgames</h4>
+                                    <p class="goal-target">Target: Mar 15, 2026</p>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                            <p class="progress-text">65% Complete</p>
+                        </div>
+
+                        <div class="goal-item">
+                            <div class="goal-header">
+                                <div class="goal-icon queen">♛</div>
+                                <div class="goal-info">
+                                    <h4>Queen's Gambit Mastery</h4>
+                                    <p class="goal-target">Target: Apr 25, 2026</p>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill purple" style="width: 45%"></div>
+                            </div>
+                            <p class="progress-text purple">45% Complete</p>
+                        </div>
+                    </div>
+
+                    <div class="goals-section">
+                        <h3 class="section-title">Recommended Practice</h3>
+                        <div class="practice-grid">
+                            <div class="practice-card">
+                                <div class="practice-icon warning">⚠</div>
+                                <div class="practice-content">
+                                    <h4>Complex Endgames</h4>
+                                    <p>Practice recommended</p>
+                                    <button class="btn-practice">Practice Now</button>
+                                </div>
+                            </div>
+
+                            <div class="practice-card">
+                                <div class="practice-icon danger">⏱</div>
+                                <div class="practice-content">
+                                    <h4>Time Management</h4>
+                                    <p>Improve decision speed</p>
+                                    <button class="btn-practice danger">Practice Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="goals-sidebar">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">🎯</div>
+                            <div class="stat-value">42</div>
+                            <div class="stat-label">Lessons Completed</div>
+                            <div class="stat-change positive">+4%</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">⏱</div>
+                            <div class="stat-value">156h</div>
+                            <div class="stat-label">Practice Time</div>
+                            <div class="stat-change positive">+3%</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-section">
+                        <h3 class="section-title">Skill Progress</h3>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Opening Theory</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Middlegame Tactics</span>
+                                <span class="skill-percent">72%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 72%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Endgame Technique</span>
+                                <span class="skill-percent">68%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 68%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Positional Play</span>
+                                <span class="skill-percent">78%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 78%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Calculation</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Page -->
+    <div id="progress" class="page-content">
+        <div class="container">
+            <h2 class="page-title">Progress</h2>
+
+            <div class="progress-layout">
+                <div class="progress-main">
+                    <div class="goals-section">
+                        <h3 class="section-title">Goal Progress</h3>
+                        <div class="goal-item">
+                            <div class="goal-header">
+                                <div class="goal-icon">♜</div>
+                                <div class="goal-info">
+                                    <h4>Master Rook Endgames</h4>
+                                    <p class="goal-target">Target: Mar 15, 2026</p>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                            <p class="progress-text">65% Complete</p>
+                        </div>
+
+                        <div class="goal-item">
+                            <div class="goal-header">
+                                <div class="goal-icon queen">♛</div>
+                                <div class="goal-info">
+                                    <h4>Queen's Gambit Mastery</h4>
+                                    <p class="goal-target">Target: Apr 25, 2026</p>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill purple" style="width: 45%"></div>
+                            </div>
+                            <p class="progress-text purple">45% Complete</p>
+                        </div>
+                    </div>
+
+                    <div class="goals-section">
+                        <h3 class="section-title">Recommended Practice</h3>
+                        <div class="practice-grid">
+                            <div class="practice-card">
+                                <div class="practice-icon warning">⚠</div>
+                                <div class="practice-content">
+                                    <h4>Complex Endgames</h4>
+                                    <p>Practice recommended</p>
+                                    <button class="btn-practice">Practice Now</button>
+                                </div>
+                            </div>
+
+                            <div class="practice-card">
+                                <div class="practice-icon danger">⏱</div>
+                                <div class="practice-content">
+                                    <h4>Time Management</h4>
+                                    <p>Improve decision speed</p>
+                                    <button class="btn-practice danger">Practice Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-sidebar">
+                    <div class="skills-section full">
+                        <h3 class="section-title">Skill Progress</h3>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Opening Theory</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Middlegame Tactics</span>
+                                <span class="skill-percent">72%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 72%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Endgame Technique</span>
+                                <span class="skill-percent">68%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 68%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Positional Play</span>
+                                <span class="skill-percent">78%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 78%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Calculation</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
