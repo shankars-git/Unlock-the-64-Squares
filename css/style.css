@@ -1,0 +1,180 @@
+body {
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+nav {
+    background: #fff;
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.09);
+}
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    font-size: 2em;
+    margin-right: 12px;
+}
+.brand {
+    font-size: 1.2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.nav-links a {
+    color: #000;
+    margin-left: 32px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+.nav-links a.active, .nav-links a:hover {
+    border-bottom-color: #5b9bd5;
+}
+main {
+    padding: 40px;
+}
+.discover h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+.featured-card {
+    background: #181818;
+    border-radius: 14px;
+    position: relative;
+    padding: 40px 30px 60px 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 44px rgba(0,0,0,0.25);
+}
+.badge {
+    position: absolute;
+    top: 18px;
+    left: 28px;
+    padding: 4px 16px;
+    border-radius: 14px;
+    font-size: 0.9em;
+    font-weight: 700;
+    color: #fff;
+}
+.badge-advanced { background: #d94545; }
+.badge-intermediate { background: #ffae42; }
+.badge-beginner { background: #4caf50; }
+.duration {
+    position: absolute;
+    top: 18px;
+    right: 28px;
+    background: rgba(255,255,255,0.08);
+    padding: 4px 14px;
+    border-radius: 13px;
+    font-size: 0.9em;
+    color: #fff;
+}
+.play-btn {
+    width: 68px;
+    height: 68px;
+    background: #fff;
+    border-radius: 50%;
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.play-btn:after {
+    content: '▶';
+    color: #000;
+    font-size: 2em;
+}
+.info {
+    margin-top: 40px;
+}
+.info h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+.info p {
+    color: #ccc;
+    font-size: 1em;
+}
+.suggested-content {
+    background: #252525;
+    border-radius: 13px;
+    padding: 32px;
+}
+.suggested-content h3 {
+    margin-bottom: 22px;
+}
+.suggestion-item {
+    display: flex;
+    justify-content: space-between;
+    background: #191919;
+    padding: 14px 20px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #ddd;
+}
+.btn-explore {
+    background: #b05bff;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 1em;
+    margin-top: 16px;
+    cursor: pointer;
+}
+.video-grid {
+    display: flex;
+    gap: 24px;
+    margin-top: 32px;
+}
+.video-card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    width: 260px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+    overflow: hidden;
+}
+.thumbnail {
+    background: #232323;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.thumbnail:after {
+    content: '▶';
+    color: #fff;
+    font-size: 2em;
+}
+.video-info {
+    padding: 16px;
+}
+.video-info h4 {
+    font-size: 1.1em;
+    margin-bottom: 7px;
+}
+.video-info p {
+    color: #aaa;
+    font-size: 0.96em;
+}
+.beginner .thumbnail { border-top: 5px solid #4caf50; }
+.intermediate .thumbnail { border-top: 5px solid #ffae42; }
+.advanced .thumbnail { border-top: 5px solid #d94545; }
