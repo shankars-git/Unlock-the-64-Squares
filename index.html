@@ -15,7 +15,8 @@
                 <span class="brand-name">Unlock the 64 Squares</span>
             </div>
             <div class="nav-links">
-                <a href="#home" class="nav-link" onclick="showPage('home')">Discover</a>
+                <a href="#home" class="nav-link" onclick="showPage('home')">Home</a>
+                <a href="#discover" class="nav-link" onclick="showPage('discover')">Discover</a>
                 <a href="#goals" class="nav-link" onclick="showPage('goals')">My Goals</a>
                 <a href="#plan" class="nav-link" onclick="showPage('plan')">My Plan</a>
                 <a href="#progress" class="nav-link" onclick="showPage('progress')">Progress</a>
@@ -38,136 +39,260 @@
                     <span class="piece">♞</span>
                 </div>
                 <div class="pawn-display">♟</div>
-                <button class="btn-primary" onclick="showPage('discover')">Continue Learning →</button>
+                <button class="btn-primary" onclick="showPage('discover')">Start Learning →</button>
             </div>
         </section>
     </div>
 
-    <!-- Discover Page -->
+    <!-- Discover Page - Redesigned -->
     <div id="discover" class="page-content">
-        <div class="container">
-            <div class="page-header">
-                <h2 class="page-title">Discover</h2>
-                <p class="breadcrumb">Discover → Endgames</p>
-            </div>
+        <div class="discover-layout">
+            <!-- Left Sidebar - Filters -->
+            <aside class="filter-sidebar">
+                <h3 class="filter-title">Filter</h3>
 
-            <div class="main-grid">
-                <div class="main-content">
-                    <!-- Featured Video -->
-                    <div class="featured-video">
-                        <span class="badge badge-advanced">ADVANCED</span>
-                        <span class="video-duration">⏱ 25 min</span>
-                        <div class="play-button">
-                            <div class="play-icon">▶</div>
-                        </div>
-                        <div class="video-details">
-                            <h3>Master Rook Endgames</h3>
-                            <p>Learn essential rook endgame techniques including the Lucena position, Philidor defense, and key theoretical draws. Perfect your technique with practical examples from grandmaster games.</p>
-                        </div>
+                <!-- Type Filter -->
+                <div class="filter-section">
+                    <div class="filter-header" onclick="toggleFilter('typeFilter')">
+                        <span class="filter-label">📚 Type</span>
+                        <span class="filter-toggle">▼</span>
                     </div>
+                    <div class="filter-options" id="typeFilter">
+                        <label class="filter-option">
+                            <input type="checkbox" checked> Videos
+                            <span class="filter-count">12</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" checked> Interactive
+                            <span class="filter-count">8</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Articles
+                            <span class="filter-count">15</span>
+                        </label>
+                    </div>
+                </div>
 
-                    <!-- More Videos Section -->
-                    <h3 class="section-title">More Videos</h3>
-                    <div class="video-grid">
-                        <div class="video-card">
-                            <div class="video-thumbnail">
-                                <span class="badge badge-beginner">BEGINNER</span>
-                                <span class="thumb-duration">5:42</span>
-                                <div class="play-overlay">▶</div>
-                            </div>
-                            <div class="video-info">
-                                <h4>King and Pawn Endgames</h4>
-                                <p>Essential moves and positions</p>
-                                <div class="video-meta">
-                                    <span class="rating">★★★★☆</span>
-                                    <span class="views">7k views</span>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Level Filter -->
+                <div class="filter-section">
+                    <div class="filter-header" onclick="toggleFilter('levelFilter')">
+                        <span class="filter-label">⭐ Level</span>
+                        <span class="filter-toggle">▼</span>
+                    </div>
+                    <div class="filter-options" id="levelFilter">
+                        <label class="filter-option">
+                            <input type="checkbox" checked> Beginner
+                            <span class="filter-count">10</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Intermediate
+                            <span class="filter-count">12</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Advanced
+                            <span class="filter-count">8</span>
+                        </label>
+                    </div>
+                </div>
 
-                        <div class="video-card">
-                            <div class="video-thumbnail">
-                                <span class="badge badge-intermediate">INTERMEDIATE</span>
-                                <span class="thumb-duration">12:16</span>
-                                <div class="play-overlay">▶</div>
-                            </div>
-                            <div class="video-info">
-                                <h4>Queen vs Rook Endgames</h4>
-                                <p>Winning strategies and defenses</p>
-                                <div class="video-meta">
-                                    <span class="rating">★★★★★</span>
-                                    <span class="views">6.5k views</span>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Theme Filter -->
+                <div class="filter-section">
+                    <div class="filter-header" onclick="toggleFilter('themeFilter')">
+                        <span class="filter-label">🎯 Theme</span>
+                        <span class="filter-toggle">▼</span>
+                    </div>
+                    <div class="filter-options" id="themeFilter">
+                        <label class="filter-option">
+                            <input type="checkbox"> Opening
+                            <span class="filter-count">9</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Middlegame
+                            <span class="filter-count">7</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" checked> Endgame
+                            <span class="filter-count">6</span>
+                        </label>
+                    </div>
+                </div>
 
-                        <div class="video-card">
-                            <div class="video-thumbnail">
-                                <span class="badge badge-advanced">ADVANCED</span>
-                                <span class="thumb-duration">18:35</span>
-                                <div class="play-overlay">▶</div>
-                            </div>
-                            <div class="video-info">
-                                <h4>Bishop vs Knight Endings</h4>
-                                <p>Understanding piece imbalances</p>
-                                <div class="video-meta">
-                                    <span class="rating">★★★★☆</span>
-                                    <span class="views">6.5k views</span>
-                                </div>
-                            </div>
+                <!-- Rating Level -->
+                <div class="filter-section">
+                    <div class="filter-header">
+                        <span class="filter-label">⭐ Rating Level</span>
+                    </div>
+                    <div class="rating-slider-container">
+                        <input type="range" class="rating-slider" min="1000" max="2400" value="1400" id="ratingSlider" oninput="updateRatingValue()">
+                        <div class="rating-value" id="ratingValue">1400</div>
+                        <div class="rating-labels">
+                            <span>1000</span>
+                            <span>2400</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Sidebar -->
-                <aside class="sidebar">
-                    <div class="suggested-box">
-                        <div class="sidebar-header">
-                            <h3>Suggested Contents</h3>
-                            <span class="icon-toggle">≡</span>
-                        </div>
-                        <div class="suggestion-list">
-                            <div class="suggestion-item">
-                                <div class="suggestion-icon">♗</div>
-                                <div class="suggestion-details">
-                                    <h4>Opposite Colored Bishops</h4>
-                                    <p>Advanced • 1.3k views</p>
-                                </div>
-                                <span class="suggestion-time">12:30</span>
-                            </div>
-                            <div class="suggestion-item">
-                                <div class="suggestion-icon">♜</div>
-                                <div class="suggestion-details">
-                                    <h4>Rook vs Minor Piece</h4>
-                                    <p>Intermediate • 2.1k views</p>
-                                </div>
-                                <span class="suggestion-time">16:45</span>
-                            </div>
-                            <div class="suggestion-item">
-                                <div class="suggestion-icon">♜</div>
-                                <div class="suggestion-details">
-                                    <h4>Two Rooks vs Queen</h4>
-                                    <p>Advanced • 4.8k views</p>
-                                </div>
-                                <span class="suggestion-time">20:10</span>
-                            </div>
-                            <div class="suggestion-item">
-                                <div class="suggestion-icon">♙</div>
-                                <div class="suggestion-details">
-                                    <h4>Practical Endgame Tips</h4>
-                                    <p>Beginner • 9.7k views</p>
-                                </div>
-                                <span class="suggestion-time">14:20</span>
-                            </div>
-                        </div>
-                        <button class="btn-explore">Explore All Lessons</button>
+                <!-- Session Duration -->
+                <div class="filter-section">
+                    <div class="filter-header">
+                        <span class="filter-label">⏱ Session Duration</span>
                     </div>
-                </aside>
-            </div>
+                    <div class="duration-slider-container">
+                        <input type="range" class="duration-slider-filter" min="5" max="60" value="30" id="sessionSlider" oninput="updateSessionValue()">
+                        <div class="session-value" id="sessionValue">30 min</div>
+                        <div class="session-labels">
+                            <span>5 min</span>
+                            <span>60 min</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Content - Practice Cards -->
+            <main class="discover-content">
+                <div class="discover-header">
+                    <h2 class="discover-title">Discover</h2>
+                    <div class="results-info">
+                        <span class="result-count">77 × 0</span>
+                    </div>
+                </div>
+
+                <div class="practice-cards-grid">
+                    <!-- Card 1 - Video -->
+                    <div class="practice-card-discover">
+                        <div class="card-thumbnail video-type">
+                            <span class="card-badge video">VIDEOS</span>
+                            <span class="card-duration">20 min</span>
+                            <div class="play-icon-large">▶</div>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">Mastering the Pawn Structure</h4>
+                            <p class="card-description">Learn pawn structure fundamentals</p>
+                            <div class="card-meta">
+                                <span class="card-views">★ 18.7k views</span>
+                                <span class="card-level badge-intermediate">INTERMEDIATE</span>
+                            </div>
+                            <button class="btn-card-action">Watch Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 - Guide -->
+                    <div class="practice-card-discover">
+                        <div class="card-thumbnail guide-type">
+                            <span class="card-badge guide">GUIDE</span>
+                            <span class="card-duration">12 min</span>
+                            <div class="guide-icon">📖</div>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">French Defense Strategy Guide</h4>
+                            <p class="card-description">Complete guide to French Defense</p>
+                            <div class="card-meta">
+                                <span class="card-views">★ 8.3k views</span>
+                                <span class="card-level badge-advanced">ADVANCED</span>
+                            </div>
+                            <button class="btn-card-action btn-guide">Read Article</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 - Interactive -->
+                    <div class="practice-card-discover">
+                        <div class="card-thumbnail interactive-type">
+                            <span class="card-badge interactive">INTERACTIVE</span>
+                            <span class="card-duration">15 min</span>
+                            <div class="chessboard-preview">
+                                <div class="board-mini">
+                                    <div class="mini-piece">♟</div>
+                                    <div class="mini-piece">♞</div>
+                                </div>
+                            </div>
+                            <div class="practice-stats">
+                                <div class="stat-item">
+                                    <span class="stat-icon">🎯</span>
+                                    <span class="stat-text">12 Exercises</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">Sicilian Defense Interactive Practice</h4>
+                            <p class="card-description">Practice Sicilian Defense with interactive lessons</p>
+                            <div class="card-meta">
+                                <span class="card-views">★ 15.7k views</span>
+                                <span class="card-level badge-intermediate">INTERMEDIATE</span>
+                            </div>
+                            <button class="btn-card-action btn-interactive">Start Practice →</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 - Video -->
+                    <div class="practice-card-discover">
+                        <div class="card-thumbnail video-type">
+                            <span class="card-badge video">VIDEOS</span>
+                            <span class="card-duration">25 min</span>
+                            <div class="play-icon-large">▶</div>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">Master Rook Endgames</h4>
+                            <p class="card-description">Essential rook endgame techniques</p>
+                            <div class="card-meta">
+                                <span class="card-views">★ 22.1k views</span>
+                                <span class="card-level badge-advanced">ADVANCED</span>
+                            </div>
+                            <button class="btn-card-action">Watch Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 - Interactive -->
+                    <div class="practice-card-discover">
+                        <div class="card-thumbnail interactive-type">
+                            <span class="card-badge interactive">INTERACTIVE</span>
+                            <span class="card-duration">18 min</span>
+                            <div class="chessboard-preview">
+                                <div class="board-mini">
+                                    <div class="mini-piece">♔</div>
+                                    <div class="mini-piece">♟</div>
+                                </div>
+                            </div>
+                            <div class="practice-stats">
+                                <div class="stat-item">
+                                    <span class="stat-icon">🎯</span>
+                                    <span class="stat-text">25 Exercises</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">King and Pawn Endgame Practice</h4>
+                            <p class="card-description">Master essential K+P endgames</p>
+                            <div class="card-meta">
+                                <span class="card-views">★ 19.4k views</span>
+                                <span class="card-level badge-beginner">BEGINNER</span>
+                            </div>
+                            <button class="btn-card-action btn-interactive">Start Practice →</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 - Guide -->
+                    <div class="practice-card-discover">
+                        <div class="card-thumbnail guide-type">
+                            <span class="card-badge guide">GUIDE</span>
+                            <span class="card-duration">10 min</span>
+                            <div class="guide-icon">📖</div>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">Opening Principles Explained</h4>
+                            <p class="card-description">Comprehensive opening strategy</p>
+                            <div class="card-meta">
+                                <span class="card-views">★ 12.8k views</span>
+                                <span class="card-level badge-beginner">BEGINNER</span>
+                            </div>
+                            <button class="btn-card-action btn-guide">Read Article</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
     </div>
 
-    <!-- My Goals Page - Create Goal Form -->
+    <!-- My Goals Page -->
     <div id="goals" class="page-content">
         <div class="container">
             <div class="create-goal-container">
@@ -175,7 +300,6 @@
                 <p class="create-goal-subtitle">Set your chess learning objectives and track your progress</p>
 
                 <form class="goal-form-main" onsubmit="handleGoalSubmit(event)">
-                    <!-- Themes Selection -->
                     <div class="form-group">
                         <label class="form-label">
                             <span class="label-icon">🎯</span>
@@ -189,13 +313,10 @@
                             <option value="king-pawn">King and Pawn Endgames</option>
                             <option value="sicilian-defense">Sicilian Defense</option>
                             <option value="french-defense">French Defense</option>
-                            <option value="italian-game">Italian Game</option>
-                            <option value="spanish-opening">Spanish Opening</option>
                         </select>
                         <p class="form-hint">Choose the chess topic you want to master</p>
                     </div>
 
-                    <!-- Target Date -->
                     <div class="form-group">
                         <label class="form-label">
                             <span class="label-icon">📅</span>
@@ -205,7 +326,6 @@
                         <p class="form-hint">When do you want to achieve the goal?</p>
                     </div>
 
-                    <!-- Rating Level -->
                     <div class="form-group">
                         <label class="form-label">
                             <span class="label-icon">⭐</span>
@@ -220,7 +340,6 @@
                         </select>
                     </div>
 
-                    <!-- Session Duration -->
                     <div class="form-group">
                         <label class="form-label">
                             <span class="label-icon">⏱</span>
@@ -242,7 +361,6 @@
                         <p class="form-hint">How long will you self-practice every day?</p>
                     </div>
 
-                    <!-- Action Buttons -->
                     <div class="form-actions">
                         <button type="button" class="btn-cancel" onclick="showPage('home')">Cancel</button>
                         <button type="submit" class="btn-save">Save Goal ✓</button>

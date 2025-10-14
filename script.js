@@ -18,7 +18,7 @@ function showPage(pageId) {
 
     // Find and activate the corresponding nav link based on page
     const navMapping = {
-        'home': 'Discover',
+        'home': 'Home',
         'discover': 'Discover',
         'goals': 'My Goals',
         'plan': 'My Plan',
@@ -38,6 +38,38 @@ function showPage(pageId) {
 
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Filter Toggle Function
+function toggleFilter(filterId) {
+    const filterOptions = document.getElementById(filterId);
+    const filterSection = filterOptions.closest('.filter-section');
+
+    if (filterOptions.style.display === 'none') {
+        filterOptions.style.display = 'flex';
+        filterSection.classList.remove('collapsed');
+    } else {
+        filterOptions.style.display = 'none';
+        filterSection.classList.add('collapsed');
+    }
+}
+
+// Rating Slider Update
+function updateRatingValue() {
+    const slider = document.getElementById('ratingSlider');
+    const value = document.getElementById('ratingValue');
+    if (slider && value) {
+        value.textContent = slider.value;
+    }
+}
+
+// Session Duration Slider Update
+function updateSessionValue() {
+    const slider = document.getElementById('sessionSlider');
+    const value = document.getElementById('sessionValue');
+    if (slider && value) {
+        value.textContent = slider.value + ' min';
+    }
 }
 
 // Show Rating Info
@@ -62,7 +94,7 @@ function showRatingInfo() {
     );
 }
 
-// Duration Control Functions
+// Duration Control Functions for Goals Page
 function updateDuration(value) {
     const durationValue = document.getElementById('durationValue');
     const durationSlider = document.getElementById('durationSlider');
@@ -171,13 +203,7 @@ function handleLogin(event) {
         'Redirecting to your dashboard...'
     );
 
-    // In a real application, you would:
-    // 1. Send credentials to backend API
-    // 2. Validate against database
-    // 3. Set authentication token
-    // 4. Redirect to dashboard
-
-    // For demo, redirect to home page
+    // Redirect to home page
     setTimeout(() => {
         showPage('home');
     }, 1000);
@@ -186,7 +212,7 @@ function handleLogin(event) {
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
     console.log('♟ Chess Learning Platform Initialized');
-    console.log('Ready to master your next move!');
+    console.log('Redesigned Discover page with filters active!');
 
     // Set home page as active by default
     showPage('home');
@@ -203,15 +229,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add interactivity to video cards
-    document.querySelectorAll('.video-card, .featured-video, .suggestion-item').forEach(card => {
+    // Add interactivity to practice cards
+    document.querySelectorAll('.practice-card-discover').forEach(card => {
         card.addEventListener('click', function() {
-            console.log('Video clicked');
-            alert('🎥 Video player would open here\n\nThis would play the selected chess lesson.');
+            const title = this.querySelector('.card-title')?.textContent;
+            const type = this.querySelector('.card-badge')?.textContent;
+            console.log('Practice card clicked:', title);
+            alert('📚 Opening: ' + title + '\n\nType: ' + type + '\n\nThis would start the practice session.');
         });
     });
 
-    // Add interactivity to plan cards
+    // Add interactivity to card action buttons
+    document.querySelectorAll('.btn-card-action').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const title = this.closest('.practice-card-discover')?.querySelector('.card-title')?.textContent;
+            console.log('Action button clicked for:', title);
+        });
+    });
+
+    // Filter checkbox handlers
+    document.querySelectorAll('.filter-option input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function(e) {
+            e.stopPropagation();
+            const label = this.closest('.filter-option');
+            const filterName = label.textContent.trim();
+            console.log('Filter changed:', filterName, 'checked:', this.checked);
+
+            // In a real app, this would filter the results
+            updateResultCount();
+        });
+    });
+
+    // Plan card buttons
     document.querySelectorAll('.btn-continue, .btn-start').forEach(button => {
         button.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -221,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add interactivity to practice buttons
+    // Practice buttons
     document.querySelectorAll('.btn-practice').forEach(button => {
         button.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -231,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add interactivity to "Add to Plan" buttons
+    // Add to Plan buttons
     document.querySelectorAll('.btn-add').forEach(button => {
         button.addEventListener('click', function() {
             const courseName = this.closest('.recommended-card')?.querySelector('h4')?.textContent;
@@ -244,7 +294,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Update slider value display
+    // Update slider value display for goals page
     const durationSlider = document.getElementById('durationSlider');
     if (durationSlider) {
         durationSlider.addEventListener('input', function() {
@@ -265,60 +315,44 @@ document.addEventListener('DOMContentLoaded', function() {
                 loginForm.dispatchEvent(new Event('submit'));
             }
         }
-    });
 
-    // Add hover effects to duration buttons
-    document.querySelectorAll('.duration-btn').forEach(btn => {
-        btn.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.1)';
-        });
-        btn.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
-    });
-
-    // Password visibility toggle (optional enhancement)
-    const passwordInput = document.getElementById('loginPassword');
-    if (passwordInput) {
-        passwordInput.addEventListener('dblclick', function() {
-            if (this.type === 'password') {
-                this.type = 'text';
-                setTimeout(() => {
-                    this.type = 'password';
-                }, 1000);
-            }
-        });
-    }
-});
-
-// Smooth scroll for internal links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href === '#' || href.startsWith('#') && href.length > 1) {
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target && !this.classList.contains('nav-link')) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+        // Quick navigation with number keys
+        if (e.altKey) {
+            switch(e.key) {
+                case '1':
+                    showPage('home');
+                    break;
+                case '2':
+                    showPage('discover');
+                    break;
+                case '3':
+                    showPage('goals');
+                    break;
+                case '4':
+                    showPage('plan');
+                    break;
+                case '5':
+                    showPage('progress');
+                    break;
+                case '6':
+                    showPage('login');
+                    break;
             }
         }
     });
 });
 
-// Add loading animation for video thumbnails
-document.querySelectorAll('.video-thumbnail, .play-button').forEach(element => {
-    element.addEventListener('mouseenter', function() {
-        this.style.transition = 'transform 0.3s ease';
-        this.style.transform = 'scale(1.05)';
-    });
+// Update result count based on filters
+function updateResultCount() {
+    const resultCount = document.querySelector('.result-count');
+    if (resultCount) {
+        // Count checked filters
+        const checkedFilters = document.querySelectorAll('.filter-option input[type="checkbox"]:checked').length;
+        const totalResults = Math.max(10, checkedFilters * 12);
 
-    element.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1)';
-    });
-});
+        resultCount.textContent = totalResults + ' × ' + checkedFilters;
+    }
+}
 
 // Form validation feedback
 document.addEventListener('DOMContentLoaded', function() {
@@ -348,17 +382,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Add hover effects to duration buttons
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.duration-btn').forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1)';
+        });
+        btn.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+});
+
 // Console welcome message
 console.log('%c♟ Unlock the 64 Squares', 'font-size: 24px; font-weight: bold; color: #5b9bd5;');
-console.log('%cChess Learning Platform', 'font-size: 16px; color: #888;');
+console.log('%cChess Learning Platform - Redesigned', 'font-size: 16px; color: #888;');
 console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 console.log('Available Pages:');
-console.log('  • Discover (Home)');
+console.log('  • Home (Landing)');
+console.log('  • Discover (With Filters)');
 console.log('  • My Goals (Create Goal)');
 console.log('  • My Plan');
 console.log('  • Progress');
 console.log('  • Login');
 console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-console.log('Use showPage(pageId) to navigate');
+console.log('Quick Navigation: Alt + 1-6 for pages');
 console.log('Keyboard: Ctrl/Cmd + Enter to submit forms');
-console.log('Double-click password field to peek');
