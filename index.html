@@ -1,183 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Unlock the 64 Squares</title>
-  <style>
-    body {
-      background: #000;
-      color: #fff;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0; padding: 0;
-    }
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #fff;
-      color: #111;
-      padding: 17px 29px;
-      font-size: 1.15em;
-      font-weight: 700;
-      box-shadow: 0 2px 7px #2222;
-    }
-    .navbar .brand {
-      font-size: 1.22em;
-    }
-    .navbar .nav {
-      display: flex;
-      gap: 2em;
-    }
-    .navbar .nav a {
-      color: #000;
-      text-decoration: none;
-      padding-bottom: 4px;
-      border-bottom: 3px solid transparent;
-      font-weight: 700;
-    }
-    .navbar .nav a.active,
-    .navbar .nav a:hover {
-      border-bottom: 3px solid #111;
-      color: #111;
-    }
-    .discover-main {
-      display: flex;
-      gap: 32px;
-      margin: 42px auto;
-      max-width: 1200px;
-      align-items: flex-start;
-      justify-content: stretch;
-      padding: 0 20px;
-    }
-    .main-content {
-      flex: 2 1 680px;
-      min-width: 340px;
-      margin-right: 26px;
-    }
-    .suggested {
-      background: #161616;
-      border-radius: 13px;
-      padding: 22px 20px;
-      min-width: 272px;
-      max-width: 340px;
-    }
-    .breadcrumb {
-      color: #bababa;
-      font-size: 1.09em;
-      margin-bottom: 22px;
-      margin-top: 2px;
-    }
-    .video-feature {
-      background: #191b21;
-      border-radius: 13px;
-      padding: 0;
-      margin-bottom: 36px;
-      overflow: hidden;
-      box-shadow: 0 0 12px #000a;
-      position: relative;
-      border: 1.5px solid #232323;
-    }
-    .video-feature .badge {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: #d94545;
-      color: #fff;
-      font-size: .93em;
-      font-weight: 700;
-      padding: 5px 13px;
-      border-radius: 13px;
-    }
-    .video-feature .duration {
-      position: absolute;
-      top: 19px;
-      right: 19px;
-      background: #131313d5;
-      color: #fff;
-      font-size: 1.03em;
-      padding: 4px 16px;
-      border-radius: 15px;
-    }
-    .video-feature .play {
-      height: 180px;
-      background: linear-gradient(135deg, #232323 60%, #000 100%);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .video-feature .play:after {
-      content: '▶';
-      color: #fff;
-      font-size: 2.2em;
-      background: #222;
-      padding: 23px 26px 21px 32px;
-      border-radius: 50%;
-      box-shadow: 0 0 6px #111c;
-      opacity: 0.9;
-    }
-    .video-feature .desc {
-      padding: 22px 22px 24px 22px;
-    }
-    .video-feature h2 { margin:0 0 8px 0; font-size: 1.4em;}
-    .video-feature p { color: #e0e0e0; }
-    .section-title { font-weight: 700; font-size: 1.17em; margin: 35px 0 10px 0;}
-    .videos-list {
-      display: flex; gap: 17px;
-      margin-bottom: 18px;
-    }
-    .video-card {
-      background: #15171c;
-      border-radius: 9px;
-      border: 1px solid #232323;
-      min-width: 195px;
-      flex: 1 1 0;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 2px 6px #0003;
-      transition: box-shadow .14s, transform .13s;
-    }
-    .video-card:hover { box-shadow: 0 5px 18px #14106c44; transform: translateY(-2px);}
-    .video-card .thumb {
-      height: 60px;
-      background: #292b2e;
-      position: relative;
-    }
-    .video-card .badge {
-      position: absolute; left: 8px; top: 8px;
-      font-weight: 700; font-size: 12px;
-      padding: 1.5px 9px;
-      color: #fff; border-radius: 8px;
-    }
-    .video-card .badge.green {background: #45c163;}
-    .video-card .badge.orange {background: #ff9000;}
-    .video-card .badge.red {background: #c24c4c;}
-    .video-card .min {
-      position: absolute; right: 8px; top:8px;
-      font-size: 12px; background: #131313d0; color: #fff;
-      padding: 1px 8px; border-radius: 8px;
-    }
-    .video-card .thumb:after {
-      content: '▶';
-      color: #fff;
-      font-size: 1.09em;
-      position: absolute;
-      left: 54%;
-      top: 57%;
-      transform: translate(-50%, -57%);
-      opacity: 0.82;
-    }
-    .video-card .vinfo {
-      padding: 11px 12px 14px 12px;
-    }
-    .video-card h3 {
-      margin: 0 0 3px 0;
-      font-size: 1em;
-      font-weight: bold;
-    }
-    .video-card .rating {
-      color: #FFD600;
-      font-size: .95em;
-      margin-top: 6px;
-      font-weight: 700;
-    }
-    .suggested h3 {
-      margin-top: 0; margin-bottom: 19px; font-size: 1
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlock the 64 Squares</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo-section">
+            <span class="logo">♟</span>
+            <span class="brand">Unlock the 64 Squares</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">Discover</a>
+            <a href="#">My Plan</a>
+            <a href="#">Goals</a>
+            <a href="#">Progress</a>
+        </div>
+    </nav>
+
+    <!-- Main Section Example: Discover Page -->
+    <main>
+        <section class="discover">
+            <h2>Discover &rarr; Endgames</h2>
+            <div class="content-grid">
+                <div class="featured-card">
+                    <span class="badge badge-advanced">ADVANCED</span>
+                    <span class="duration">25 min</span>
+                    <div class="play-btn"></div>
+                    <div class="info">
+                        <h3>Master Rook Endgames</h3>
+                        <p>Learn essential rook endgame techniques including the Lucena position, Philidor defense, and key theoretical draws. Perfect your technique with practical examples from grandmaster games.</p>
+                    </div>
+                </div>
+                <aside class="suggested-content">
+                    <h3>Suggested Contents</h3>
+                    <ul>
+                        <li class="suggestion-item">Opposite Colored Bishops <span>12:30</span></li>
+                        <li class="suggestion-item">Rook vs Minor Piece <span>16:45</span></li>
+                        <li class="suggestion-item">Two Rooks vs Queen <span>20:10</span></li>
+                        <li class="suggestion-item">Practical Endgame Tips <span>14:20</span></li>
+                    </ul>
+                    <button class="btn-explore">Explore All Lessons</button>
+                </aside>
+            </div>
+
+            <h3>More Videos</h3>
+            <div class="video-grid">
+                <div class="video-card beginner">
+                    <div class="thumbnail"></div>
+                    <div class="video-info">
+                        <h4>King and Pawn Endgames</h4>
+                        <p>Essential moves and positions</p>
+                    </div>
+                </div>
+                <div class="video-card intermediate">
+                    <div class="thumbnail"></div>
+                    <div class="video-info">
+                        <h4>Queen vs Rook Endgames</h4>
+                        <p>Winning strategies and defenses</p>
+                    </div>
+                </div>
+                <div class="video-card advanced">
+                    <div class="thumbnail"></div>
+                    <div class="video-info">
+                        <h4>Bishop vs Knight Endings</h4>
+                        <p>Understanding piece imbalances</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
