@@ -106,9 +106,9 @@ body {
 }
 
 .section-title {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 700;
-    margin: 40px 0 24px;
+    margin-bottom: 20px;
 }
 
 /* Hero Section */
@@ -178,22 +178,11 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-.btn-continue {
     background: #5b9bd5;
     color: #fff;
 }
 
-.btn-continue:hover {
-    background: #4a8ac4;
-}
-
-.btn-start {
-    background: #5b9bd5;
-    color: #fff;
-}
-
+.btn-continue:hover,
 .btn-start:hover {
     background: #4a8ac4;
 }
@@ -607,8 +596,233 @@ body {
     margin-bottom: 16px;
 }
 
-/* Goals Layout */
-.goals-layout,
+/* Create Goal Page Styles */
+.create-goal-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 50px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.create-goal-title {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.create-goal-subtitle {
+    color: #888;
+    font-size: 17px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Form Styles */
+.goal-form-main {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.label-icon {
+    font-size: 20px;
+}
+
+/* Info Icon for Rating */
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: #5b9bd5;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 6px;
+    transition: all 0.3s ease;
+}
+
+.info-icon:hover {
+    background: #4a8ac4;
+    transform: scale(1.1);
+}
+
+.form-select,
+.form-input {
+    background: #2a2a2a;
+    border: 2px solid #333;
+    color: #fff;
+    padding: 16px 18px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-select:focus,
+.form-input:focus {
+    outline: none;
+    border-color: #5b9bd5;
+}
+
+.form-select option {
+    background: #2a2a2a;
+    color: #fff;
+}
+
+.form-hint {
+    color: #666;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+/* Duration Control */
+.duration-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 24px;
+    background: #2a2a2a;
+    border-radius: 14px;
+}
+
+.duration-btn {
+    width: 56px;
+    height: 56px;
+    background: #3a3a3a;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.duration-btn:hover {
+    background: #4a4a4a;
+}
+
+.duration-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: #5b9bd5;
+    padding: 14px 40px;
+    border-radius: 60px;
+    min-width: 140px;
+}
+
+.duration-value {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.duration-unit {
+    font-size: 18px;
+    color: #e8f0f8;
+}
+
+.duration-slider {
+    width: 100%;
+    height: 8px;
+    background: #333;
+    border-radius: 10px;
+    outline: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.duration-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    background: #5b9bd5;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.duration-slider::-webkit-slider-thumb:hover {
+    background: #4a8ac4;
+}
+
+.duration-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: #5b9bd5;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.btn-cancel,
+.btn-save {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel {
+    background: #333;
+    color: #fff;
+}
+
+.btn-cancel:hover {
+    background: #444;
+}
+
+.btn-save {
+    background: #5b9bd5;
+    color: #fff;
+}
+
+.btn-save:hover {
+    background: #4a8ac4;
+}
+
+/* Progress Layout */
 .progress-layout {
     display: grid;
     grid-template-columns: 1fr 400px;
@@ -627,6 +841,10 @@ body {
     border-radius: 12px;
     padding: 24px;
     margin-bottom: 20px;
+}
+
+.goal-item:last-child {
+    margin-bottom: 0;
 }
 
 .goal-header {
@@ -650,6 +868,10 @@ body {
 
 .goal-icon.queen {
     background: #a855f7;
+}
+
+.goal-info {
+    flex: 1;
 }
 
 .goal-info h4 {
@@ -741,46 +963,6 @@ body {
     margin-bottom: 12px;
 }
 
-/* Stats Grid */
-.stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 24px;
-}
-
-.stat-card {
-    background: #1a1a1a;
-    border-radius: 12px;
-    padding: 20px;
-    border: 2px solid #4caf50;
-}
-
-.stat-icon {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.stat-value {
-    font-size: 40px;
-    font-weight: 700;
-    margin: 10px 0;
-}
-
-.stat-label {
-    color: #888;
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-
-.stat-change {
-    font-size: 14px;
-}
-
-.stat-change.positive {
-    color: #4caf50;
-}
-
 /* Skills Section */
 .skills-section {
     background: #1a1a1a;
@@ -796,6 +978,10 @@ body {
     margin-bottom: 20px;
 }
 
+.skill-item:last-child {
+    margin-bottom: 0;
+}
+
 .skill-header {
     display: flex;
     justify-content: space-between;
@@ -808,10 +994,168 @@ body {
     font-weight: 600;
 }
 
+/* Login Page Styles */
+.login-container {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+    padding: 40px 20px;
+}
+
+.login-box {
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 50px;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.login-logo {
+    width: 70px;
+    height: 70px;
+    background: #5b9bd5;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    margin: 0 auto 20px;
+    color: #fff;
+}
+
+.login-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.login-subtitle {
+    color: #888;
+    font-size: 16px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -8px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #5b9bd5;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #4a8ac4;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 16px;
+    background: #5b9bd5;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 8px;
+}
+
+.btn-login:hover {
+    background: #4a8ac4;
+}
+
+.login-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 8px 0;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #333;
+}
+
+.login-divider span {
+    color: #666;
+    font-size: 14px;
+}
+
+.btn-signup {
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    color: #5b9bd5;
+    border: 2px solid #5b9bd5;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-signup:hover {
+    background: #5b9bd5;
+    color: #fff;
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 13px;
+    color: #666;
+}
+
+.login-footer a {
+    color: #5b9bd5;
+    text-decoration: none;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
     .main-grid,
-    .goals-layout,
     .progress-layout {
         grid-template-columns: 1fr;
     }
@@ -829,6 +1173,8 @@ body {
 
     .nav-links {
         gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .hero-title {
@@ -839,13 +1185,29 @@ body {
         font-size: 28px;
     }
 
+    .create-goal-container {
+        padding: 30px 20px;
+    }
+
+    .create-goal-title {
+        font-size: 32px;
+    }
+
+    .login-box {
+        padding: 30px 24px;
+    }
+
     .video-grid,
     .plan-grid,
     .recommended-grid {
         grid-template-columns: 1fr;
     }
 
-    .stats-grid {
+    .practice-grid {
         grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
     }
 }

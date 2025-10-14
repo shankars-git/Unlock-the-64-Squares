@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unlock the 64 Squares - Chess Learning Platform</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -16,9 +16,10 @@
             </div>
             <div class="nav-links">
                 <a href="#home" class="nav-link" onclick="showPage('home')">Discover</a>
+                <a href="#goals" class="nav-link" onclick="showPage('goals')">My Goals</a>
                 <a href="#plan" class="nav-link" onclick="showPage('plan')">My Plan</a>
-                <a href="#goals" class="nav-link" onclick="showPage('goals')">Goals</a>
                 <a href="#progress" class="nav-link" onclick="showPage('progress')">Progress</a>
+                <a href="#login" class="nav-link" onclick="showPage('login')">Login</a>
             </div>
         </div>
     </nav>
@@ -166,6 +167,91 @@
         </div>
     </div>
 
+    <!-- My Goals Page - Create Goal Form -->
+    <div id="goals" class="page-content">
+        <div class="container">
+            <div class="create-goal-container">
+                <h2 class="create-goal-title">Create Your Goal</h2>
+                <p class="create-goal-subtitle">Set your chess learning objectives and track your progress</p>
+
+                <form class="goal-form-main" onsubmit="handleGoalSubmit(event)">
+                    <!-- Themes Selection -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="label-icon">🎯</span>
+                            Themes
+                        </label>
+                        <select class="form-select" id="themeSelect" required>
+                            <option value="">Select a theme...</option>
+                            <option value="rook-endgame">Rook Endgame</option>
+                            <option value="queens-gambit">Queens Gambit</option>
+                            <option value="opening-tactics">Opening Tactics</option>
+                            <option value="king-pawn">King and Pawn Endgames</option>
+                            <option value="sicilian-defense">Sicilian Defense</option>
+                            <option value="french-defense">French Defense</option>
+                            <option value="italian-game">Italian Game</option>
+                            <option value="spanish-opening">Spanish Opening</option>
+                        </select>
+                        <p class="form-hint">Choose the chess topic you want to master</p>
+                    </div>
+
+                    <!-- Target Date -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="label-icon">📅</span>
+                            Target Date
+                        </label>
+                        <input type="date" class="form-input" id="targetDate" value="2026-01-15" required>
+                        <p class="form-hint">When do you want to achieve the goal?</p>
+                    </div>
+
+                    <!-- Rating Level -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="label-icon">⭐</span>
+                            Rating Level
+                            <span class="info-icon" onclick="showRatingInfo()" title="What is rating level?">?</span>
+                        </label>
+                        <select class="form-select" id="ratingLevel" required>
+                            <option value="beginner">BEGINNER (1000-1400)</option>
+                            <option value="intermediate" selected>INTERMEDIATE (1400-1800)</option>
+                            <option value="advanced">ADVANCED (1800-2200)</option>
+                            <option value="expert">EXPERT (2200+)</option>
+                        </select>
+                    </div>
+
+                    <!-- Session Duration -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="label-icon">⏱</span>
+                            Session Duration
+                        </label>
+                        <div class="duration-control">
+                            <button type="button" class="duration-btn" onclick="changeDuration(-5)">−</button>
+                            <div class="duration-display">
+                                <span class="duration-value" id="durationValue">15</span>
+                                <span class="duration-unit">min</span>
+                            </div>
+                            <button type="button" class="duration-btn" onclick="changeDuration(5)">+</button>
+                        </div>
+                        <input type="range" class="duration-slider" id="durationSlider" min="5" max="60" value="15" step="5" oninput="updateDuration(this.value)">
+                        <div class="slider-labels">
+                            <span>5 min</span>
+                            <span>30 min</span>
+                        </div>
+                        <p class="form-hint">How long will you self-practice every day?</p>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" onclick="showPage('home')">Cancel</button>
+                        <button type="submit" class="btn-save">Save Goal ✓</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- My Plan Page -->
     <div id="plan" class="page-content">
         <div class="container">
@@ -236,142 +322,6 @@
                     <p>Solid opening against 1.e4</p>
                     <div class="rating">★★★★☆</div>
                     <button class="btn-add">+ Add to Plan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Goals Page -->
-    <div id="goals" class="page-content">
-        <div class="container">
-            <h2 class="page-title">Goals</h2>
-
-            <div class="goals-layout">
-                <div class="goals-main">
-                    <div class="goals-section">
-                        <h3 class="section-title">Goal Progress</h3>
-                        <div class="goal-item">
-                            <div class="goal-header">
-                                <div class="goal-icon">♜</div>
-                                <div class="goal-info">
-                                    <h4>Master Rook Endgames</h4>
-                                    <p class="goal-target">Target: Mar 15, 2026</p>
-                                </div>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 65%"></div>
-                            </div>
-                            <p class="progress-text">65% Complete</p>
-                        </div>
-
-                        <div class="goal-item">
-                            <div class="goal-header">
-                                <div class="goal-icon queen">♛</div>
-                                <div class="goal-info">
-                                    <h4>Queen's Gambit Mastery</h4>
-                                    <p class="goal-target">Target: Apr 25, 2026</p>
-                                </div>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill purple" style="width: 45%"></div>
-                            </div>
-                            <p class="progress-text purple">45% Complete</p>
-                        </div>
-                    </div>
-
-                    <div class="goals-section">
-                        <h3 class="section-title">Recommended Practice</h3>
-                        <div class="practice-grid">
-                            <div class="practice-card">
-                                <div class="practice-icon warning">⚠</div>
-                                <div class="practice-content">
-                                    <h4>Complex Endgames</h4>
-                                    <p>Practice recommended</p>
-                                    <button class="btn-practice">Practice Now</button>
-                                </div>
-                            </div>
-
-                            <div class="practice-card">
-                                <div class="practice-icon danger">⏱</div>
-                                <div class="practice-content">
-                                    <h4>Time Management</h4>
-                                    <p>Improve decision speed</p>
-                                    <button class="btn-practice danger">Practice Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="goals-sidebar">
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-icon">🎯</div>
-                            <div class="stat-value">42</div>
-                            <div class="stat-label">Lessons Completed</div>
-                            <div class="stat-change positive">+4%</div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-icon">⏱</div>
-                            <div class="stat-value">156h</div>
-                            <div class="stat-label">Practice Time</div>
-                            <div class="stat-change positive">+3%</div>
-                        </div>
-                    </div>
-
-                    <div class="skills-section">
-                        <h3 class="section-title">Skill Progress</h3>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Opening Theory</span>
-                                <span class="skill-percent">85%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Middlegame Tactics</span>
-                                <span class="skill-percent">72%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 72%"></div>
-                            </div>
-                        </div>
-
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Endgame Technique</span>
-                                <span class="skill-percent">68%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 68%"></div>
-                            </div>
-                        </div>
-
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Positional Play</span>
-                                <span class="skill-percent">78%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 78%"></div>
-                            </div>
-                        </div>
-
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Calculation</span>
-                                <span class="skill-percent">80%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -497,6 +447,71 @@
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <!-- Login Page -->
+    <div id="login" class="page-content">
+        <div class="login-container">
+            <div class="login-box">
+                <div class="login-header">
+                    <div class="login-logo">♟</div>
+                    <h2 class="login-title">Welcome Back</h2>
+                    <p class="login-subtitle">Sign in to continue your chess journey</p>
+                </div>
+
+                <form class="login-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="label-icon">📧</span>
+                            Email Address
+                        </label>
+                        <input 
+                            type="email" 
+                            class="form-input" 
+                            id="loginEmail" 
+                            placeholder="your.email@example.com"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="label-icon">🔒</span>
+                            Password
+                        </label>
+                        <input 
+                            type="password" 
+                            class="form-input" 
+                            id="loginPassword" 
+                            placeholder="Enter your password"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-login">Sign In</button>
+
+                    <div class="login-divider">
+                        <span>OR</span>
+                    </div>
+
+                    <button type="button" class="btn-signup" onclick="alert('Sign up functionality would be implemented here')">
+                        Create New Account
+                    </button>
+                </form>
+
+                <p class="login-footer">
+                    By continuing, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
