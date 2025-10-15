@@ -53,7 +53,7 @@
 
                 <div class="filter-section">
                     <div class="filter-header" onclick="toggleFilter('typeFilter')">
-                        <span class="filter-label">📚 Type</span>
+                        <span class="filter-label">Type</span>
                         <span class="filter-toggle">▼</span>
                     </div>
                     <div class="filter-options" id="typeFilter">
@@ -71,7 +71,7 @@
 
                 <div class="filter-section">
                     <div class="filter-header" onclick="toggleFilter('levelFilter')">
-                        <span class="filter-label">⭐ Level</span>
+                        <span class="filter-label">Level</span>
                         <span class="filter-toggle">▼</span>
                     </div>
                     <div class="filter-options" id="levelFilter">
@@ -89,7 +89,7 @@
 
                 <div class="filter-section">
                     <div class="filter-header" onclick="toggleFilter('themeFilter')">
-                        <span class="filter-label">🎯 Theme</span>
+                        <span class="filter-label">Theme</span>
                         <span class="filter-toggle">▼</span>
                     </div>
                     <div class="filter-options" id="themeFilter">
@@ -107,7 +107,7 @@
 
                 <div class="filter-section">
                     <div class="filter-header">
-                        <span class="filter-label">⭐ Rating Level</span>
+                        <span class="filter-label">Rating Level</span>
                     </div>
                     <div class="rating-slider-container">
                         <input type="range" class="rating-slider" min="1000" max="2400" value="1400" id="ratingSlider" oninput="updateRatingValue()">
@@ -153,7 +153,7 @@
                             <h4 class="card-title">Mastering the Pawn Structure</h4>
                             <p class="card-description">Learn pawn structure fundamentals</p>
                             <div class="card-meta">
-                                <span class="card-views">★ 18.7k views</span>
+                                <span class="card-views">18.7k views</span>
                                 <span class="card-level badge-intermediate">INTERMEDIATE</span>
                             </div>
                             <button class="btn-card-action" onclick="event.stopPropagation();">Watch Now</button>
@@ -171,7 +171,7 @@
                             <h4 class="card-title">French Defense Strategy Guide</h4>
                             <p class="card-description">Complete guide to French Defense</p>
                             <div class="card-meta">
-                                <span class="card-views">★ 8.3k views</span>
+                                <span class="card-views">8.3k views</span>
                                 <span class="card-level badge-advanced">ADVANCED</span>
                             </div>
                             <button class="btn-card-action btn-guide">Read Article</button>
@@ -200,7 +200,7 @@
                             <h4 class="card-title">Sicilian Defense Interactive Practice</h4>
                             <p class="card-description">Practice Sicilian Defense with interactive lessons</p>
                             <div class="card-meta">
-                                <span class="card-views">★ 15.7k views</span>
+                                <span class="card-views">15.7k views</span>
                                 <span class="card-level badge-intermediate">INTERMEDIATE</span>
                             </div>
                             <button class="btn-card-action btn-interactive">Start Practice →</button>
@@ -218,7 +218,7 @@
                             <h4 class="card-title">Master Rook Endgames</h4>
                             <p class="card-description">Essential rook endgame techniques</p>
                             <div class="card-meta">
-                                <span class="card-views">★ 22.1k views</span>
+                                <span class="card-views">22.1k views</span>
                                 <span class="card-level badge-advanced">ADVANCED</span>
                             </div>
                             <button class="btn-card-action" onclick="event.stopPropagation();">Watch Now</button>
@@ -247,7 +247,7 @@
                             <h4 class="card-title">King and Pawn Endgame Practice</h4>
                             <p class="card-description">Master essential K+P endgames</p>
                             <div class="card-meta">
-                                <span class="card-views">★ 19.4k views</span>
+                                <span class="card-views">19.4k views</span>
                                 <span class="card-level badge-beginner">BEGINNER</span>
                             </div>
                             <button class="btn-card-action btn-interactive">Start Practice →</button>
@@ -265,7 +265,7 @@
                             <h4 class="card-title">Opening Principles Explained</h4>
                             <p class="card-description">Comprehensive opening strategy</p>
                             <div class="card-meta">
-                                <span class="card-views">★ 12.8k views</span>
+                                <span class="card-views">12.8k views</span>
                                 <span class="card-level badge-beginner">BEGINNER</span>
                             </div>
                             <button class="btn-card-action btn-guide">Read Article</button>
@@ -441,7 +441,7 @@
                 <form class="goal-form-main" onsubmit="handleGoalSubmit(event)">
                     <div class="form-group">
                         <label class="form-label">
-                            <span class="label-icon">🎯</span>
+                            <span class="label-icon"></span>
                             Themes
                         </label>
                         <select class="form-select" id="themeSelect" required>
@@ -458,7 +458,7 @@
 
                     <div class="form-group">
                         <label class="form-label">
-                            <span class="label-icon">📅</span>
+                            <span class="label-icon"></span>
                             Target Date
                         </label>
                         <input type="date" class="form-input" id="targetDate" value="2026-01-15" required>
@@ -467,7 +467,7 @@
 
                     <div class="form-group">
                         <label class="form-label">
-                            <span class="label-icon">⭐</span>
+                            <span class="label-icon"></span>
                             Rating Level
                             <span class="info-icon" onclick="showRatingInfo()" title="What is rating level?">?</span>
                         </label>
@@ -481,7 +481,7 @@
 
                     <div class="form-group">
                         <label class="form-label">
-                            <span class="label-icon">⏱</span>
+                            <span class="label-icon"></span>
                             Session Duration
                         </label>
                         <div class="duration-control">
@@ -502,7 +502,7 @@
 
                     <div class="form-actions">
                         <button type="button" class="btn-cancel" onclick="showPage('home')">Cancel</button>
-                        <button type="submit" class="btn-save">Save Goal ✓</button>
+                        <button type="submit" class="btn-save">Save Goal</button>
                     </div>
                 </form>
             </div>
@@ -717,7 +717,7 @@
                 <form class="login-form" onsubmit="handleLogin(event)">
                     <div class="form-group">
                         <label class="form-label">
-                            <span class="label-icon">📧</span>
+                            <span class="label-icon"></span>
                             Email Address
                         </label>
                         <input 
@@ -731,7 +731,7 @@
 
                     <div class="form-group">
                         <label class="form-label">
-                            <span class="label-icon">🔒</span>
+                            <span class="label-icon"></span>
                             Password
                         </label>
                         <input 
@@ -762,9 +762,6 @@
                     </button>
                 </form>
 
-                <p class="login-footer">
-                    By continuing, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
-                </p>
             </div>
         </div>
     </div>
