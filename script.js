@@ -75,22 +75,19 @@ function updateSessionValue() {
 // Show Rating Info
 function showRatingInfo() {
     alert(
-        '📊 Chess Rating Levels Explained\n\n' +
-        '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n' +
-        '🟢 BEGINNER (1000-1400)\n' +
+        'Chess Rating Levels Explained\n\n' +
+        'BEGINNER (1000-1400)\n' +
         'Learning basic tactics and openings.\n' +
         'Understanding piece values and simple endgames.\n\n' +
-        '🟡 INTERMEDIATE (1400-1800)\n' +
+        'INTERMEDIATE (1400-1800)\n' +
         'Developing strategic thinking.\n' +
         'Studying common patterns and middlegame plans.\n\n' +
-        '🟠 ADVANCED (1800-2200)\n' +
+        'ADVANCED (1800-2200)\n' +
         'Deep tactical and positional understanding.\n' +
         'Strong opening preparation and endgame technique.\n\n' +
-        '🔴 EXPERT (2200+)\n' +
+        '🔴EXPERT (2200+)\n' +
         'Master level play.\n' +
-        'Candidate Master, Master, or higher titles.\n\n' +
-        '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
-        'Choose the level that matches your current skill!'
+        'Candidate Master, Master, or higher titles.\n\n'
     );
 }
 
