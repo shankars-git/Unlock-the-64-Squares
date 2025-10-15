@@ -226,15 +226,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add interactivity to practice cards
-    document.querySelectorAll('.practice-card-discover').forEach(card => {
-        card.addEventListener('click', function() {
-            const title = this.querySelector('.card-title')?.textContent;
-            const type = this.querySelector('.card-badge')?.textContent;
-            console.log('Practice card clicked:', title);
-            alert('📚 Opening: ' + title + '\n\nType: ' + type + '\n\nThis would start the practice session.');
-        });
+// Add interactivity to practice cards (no alert, just navigate)
+document.querySelectorAll('.practice-card-discover').forEach(card => {
+    card.addEventListener('click', function() {
+        const title = this.querySelector('.card-title')?.textContent;
+        console.log('Practice card clicked:', title);
+        // No alert - just let the onclick handler navigate to video detail
     });
+});
+
 
     // Add interactivity to card action buttons
     document.querySelectorAll('.btn-card-action').forEach(button => {

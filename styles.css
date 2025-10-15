@@ -208,13 +208,14 @@ body {
 .filter-option {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 8px 10px;
     background: #1a1a1a;
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
+
 
 .filter-option:hover {
     background: #252525;
