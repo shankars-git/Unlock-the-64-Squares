@@ -408,3 +408,22 @@ console.log('  • Login');
 console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 console.log('Quick Navigation: Alt + 1-6 for pages');
 console.log('Keyboard: Ctrl/Cmd + Enter to submit forms');
+// Open Video Detail Page
+function openVideoDetail(title, level, duration, category, description) {
+    // Update video detail page content
+    document.getElementById('videoTitleMain').textContent = title;
+    document.getElementById('videoDescriptionFull').textContent = description;
+    document.getElementById('videoLevelBadge').textContent = level;
+    document.getElementById('videoDurationBadge').textContent = '⏱ ' + duration;
+    document.getElementById('videoCategoryBreadcrumb').textContent = category;
+    
+    // Show video detail page
+    showPage('video-detail');
+    
+    console.log('Opening video:', title);
+}
+
+// Load Video (for clicking on related videos or suggestions)
+function loadVideo(title, level, duration, category, description) {
+    openVideoDetail(title, level, duration, category, description);
+}
