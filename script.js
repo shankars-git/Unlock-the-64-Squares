@@ -424,3 +424,8 @@ function openVideoDetail(title, level, duration, category, description) {
 function loadVideo(title, level, duration, category, description) {
     openVideoDetail(title, level, duration, category, description);
 }
+
+function openInteractiveDetail(title, level, duration, category, description, exercises) { ... }
+function loadInteractive(title, level, duration, category, description, exercises) { ... }
+function openBlogDetail(title, level, duration, category, content) { ... }
+function loadArticle(title, level, duration, category, description) { ... }
