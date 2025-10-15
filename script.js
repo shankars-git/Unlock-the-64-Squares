@@ -85,7 +85,7 @@ function showRatingInfo() {
         'ADVANCED (1800-2200)\n' +
         'Deep tactical and positional understanding.\n' +
         'Strong opening preparation and endgame technique.\n\n' +
-        '🔴EXPERT (2200+)\n' +
+        'EXPERT (2200+)\n' +
         'Master level play.\n' +
         'Candidate Master, Master, or higher titles.\n\n'
     );
