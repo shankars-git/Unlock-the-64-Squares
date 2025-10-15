@@ -51,7 +51,6 @@
             <aside class="filter-sidebar">
                 <h3 class="filter-title">Filter</h3>
 
-                <!-- Type Filter -->
                 <div class="filter-section">
                     <div class="filter-header" onclick="toggleFilter('typeFilter')">
                         <span class="filter-label">📚 Type</span>
@@ -60,20 +59,16 @@
                     <div class="filter-options" id="typeFilter">
                         <label class="filter-option">
                             <input type="checkbox" checked> Videos
-                            <span class="filter-count">12</span>
                         </label>
                         <label class="filter-option">
                             <input type="checkbox" checked> Interactive
-                            <span class="filter-count">8</span>
                         </label>
                         <label class="filter-option">
                             <input type="checkbox"> Articles
-                            <span class="filter-count">15</span>
                         </label>
                     </div>
                 </div>
 
-                <!-- Level Filter -->
                 <div class="filter-section">
                     <div class="filter-header" onclick="toggleFilter('levelFilter')">
                         <span class="filter-label">⭐ Level</span>
@@ -82,20 +77,16 @@
                     <div class="filter-options" id="levelFilter">
                         <label class="filter-option">
                             <input type="checkbox" checked> Beginner
-                            <span class="filter-count">10</span>
                         </label>
                         <label class="filter-option">
                             <input type="checkbox"> Intermediate
-                            <span class="filter-count">12</span>
                         </label>
                         <label class="filter-option">
                             <input type="checkbox"> Advanced
-                            <span class="filter-count">8</span>
                         </label>
                     </div>
                 </div>
 
-                <!-- Theme Filter -->
                 <div class="filter-section">
                     <div class="filter-header" onclick="toggleFilter('themeFilter')">
                         <span class="filter-label">🎯 Theme</span>
@@ -104,20 +95,16 @@
                     <div class="filter-options" id="themeFilter">
                         <label class="filter-option">
                             <input type="checkbox"> Opening
-                            <span class="filter-count">9</span>
                         </label>
                         <label class="filter-option">
                             <input type="checkbox"> Middlegame
-                            <span class="filter-count">7</span>
                         </label>
                         <label class="filter-option">
                             <input type="checkbox" checked> Endgame
-                            <span class="filter-count">6</span>
                         </label>
                     </div>
                 </div>
 
-                <!-- Rating Level -->
                 <div class="filter-section">
                     <div class="filter-header">
                         <span class="filter-label">⭐ Rating Level</span>
@@ -132,7 +119,6 @@
                     </div>
                 </div>
 
-                <!-- Session Duration -->
                 <div class="filter-section">
                     <div class="filter-header">
                         <span class="filter-label">⏱ Session Duration</span>
@@ -159,7 +145,7 @@
 
                 <div class="practice-cards-grid">
                     <!-- Card 1 - Video -->
-                    <div class="practice-card-discover">
+                    <div class="practice-card-discover" onclick="openVideoDetail('Mastering the Pawn Structure', 'INTERMEDIATE', '20 min', 'Endgames', 'Learn pawn structure fundamentals and how to leverage them in your games.')">
                         <div class="card-thumbnail video-type">
                             <span class="card-badge video">VIDEOS</span>
                             <span class="card-duration">20 min</span>
@@ -172,7 +158,7 @@
                                 <span class="card-views">★ 18.7k views</span>
                                 <span class="card-level badge-intermediate">INTERMEDIATE</span>
                             </div>
-                            <button class="btn-card-action">Watch Now</button>
+                            <button class="btn-card-action" onclick="event.stopPropagation();">Watch Now</button>
                         </div>
                     </div>
 
@@ -224,7 +210,7 @@
                     </div>
 
                     <!-- Card 4 - Video -->
-                    <div class="practice-card-discover">
+                    <div class="practice-card-discover" onclick="openVideoDetail('Master Rook Endgames', 'ADVANCED', '25 min', 'Endgames', 'Learn essential rook endgame techniques including the Lucena position, Philidor defense, and key theoretical draws. Perfect your technique with practical examples from grandmaster games.')">
                         <div class="card-thumbnail video-type">
                             <span class="card-badge video">VIDEOS</span>
                             <span class="card-duration">25 min</span>
@@ -237,7 +223,7 @@
                                 <span class="card-views">★ 22.1k views</span>
                                 <span class="card-level badge-advanced">ADVANCED</span>
                             </div>
-                            <button class="btn-card-action">Watch Now</button>
+                            <button class="btn-card-action" onclick="event.stopPropagation();">Watch Now</button>
                         </div>
                     </div>
 
@@ -289,6 +275,161 @@
                     </div>
                 </div>
             </main>
+        </div>
+    </div>
+
+    <!-- Video Detail Page -->
+    <div id="video-detail" class="page-content">
+        <div class="video-detail-container">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb-nav">
+                <a href="#" onclick="showPage('discover')">Discover</a>
+                <span class="breadcrumb-arrow">→</span>
+                <span id="videoCategoryBreadcrumb">Endgames</span>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="video-detail-layout">
+                <!-- Left Side - Main Video + More Videos -->
+                <div class="video-main-section">
+                    <!-- Featured Video Player -->
+                    <div class="video-player-container">
+                        <div class="video-badge-overlay">
+                            <span class="video-badge-detail" id="videoLevelBadge">ADVANCED</span>
+                            <span class="video-duration-detail" id="videoDurationBadge">⏱ 25 min</span>
+                        </div>
+                        <div class="video-player">
+                            <div class="play-button-large">▶</div>
+                        </div>
+                        <div class="video-info-detail">
+                            <h1 class="video-title-main" id="videoTitleMain">Master Rook Endgames</h1>
+                            <p class="video-description-full" id="videoDescriptionFull">
+                                Learn essential rook endgame techniques including the Lucena position, Philidor defense, 
+                                and key theoretical draws. Perfect your technique with practical examples from grandmaster games.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- More Videos Section -->
+                    <div class="more-videos-section">
+                        <h3 class="more-videos-title">More Videos</h3>
+                        <div class="more-videos-grid">
+                            <!-- Video 1 -->
+                            <div class="more-video-card" onclick="loadVideo('King and Pawn Endgames', 'BEGINNER', '10 min', 'Endgames', 'Essential pawn endgame principles for beginners')">
+                                <div class="more-video-thumbnail">
+                                    <span class="more-badge beginner">BEGINNER</span>
+                                    <div class="more-play-icon">▶</div>
+                                    <span class="more-duration">10:42</span>
+                                </div>
+                                <div class="more-video-info">
+                                    <h4>King and Pawn Endgames</h4>
+                                    <p>Essential pawn endgame principles</p>
+                                    <div class="more-video-meta">
+                                        <span class="more-rating">★★★★★</span>
+                                        <span class="more-views">7.5k views</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video 2 -->
+                            <div class="more-video-card" onclick="loadVideo('Queen vs Rook Endgames', 'INTERMEDIATE', '12 min', 'Endgames', 'Winning strategies and defensive techniques')">
+                                <div class="more-video-thumbnail intermediate-bg">
+                                    <span class="more-badge intermediate">INTERMEDIATE</span>
+                                    <div class="more-play-icon">▶</div>
+                                    <span class="more-duration">12:16</span>
+                                </div>
+                                <div class="more-video-info">
+                                    <h4>Queen vs Rook Endgames</h4>
+                                    <p>Winning strategies and defenses</p>
+                                    <div class="more-video-meta">
+                                        <span class="more-rating">★★★★☆</span>
+                                        <span class="more-views">5.2k views</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video 3 -->
+                            <div class="more-video-card" onclick="loadVideo('Bishop vs Knight Endings', 'ADVANCED', '18 min', 'Endgames', 'Understanding piece imbalances and how to exploit them')">
+                                <div class="more-video-thumbnail advanced-bg">
+                                    <span class="more-badge advanced">ADVANCED</span>
+                                    <div class="more-play-icon">▶</div>
+                                    <span class="more-duration">18:35</span>
+                                </div>
+                                <div class="more-video-info">
+                                    <h4>Bishop vs Knight Endings</h4>
+                                    <p>Understanding piece imbalances</p>
+                                    <div class="more-video-meta">
+                                        <span class="more-rating">★★★★☆</span>
+                                        <span class="more-views">4.8k views</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar - Suggested Contents -->
+                <aside class="video-sidebar">
+                    <div class="suggested-contents-box">
+                        <div class="suggested-header">
+                            <h3>Suggested Contents</h3>
+                            <button class="toggle-icon">≡</button>
+                        </div>
+
+                        <div class="suggested-list">
+                            <!-- Suggestion 1 -->
+                            <div class="suggestion-item-video" onclick="loadVideo('Opposite Colored Bishops', 'ADVANCED', '12 min', 'Endgames', 'Advanced bishop endgame theory and drawing techniques')">
+                                <div class="suggestion-thumbnail">
+                                    <div class="suggestion-icon">♗</div>
+                                    <span class="suggestion-time">12:30</span>
+                                </div>
+                                <div class="suggestion-details">
+                                    <h4>Opposite Colored Bishops</h4>
+                                    <p class="suggestion-meta">Advanced • 1.3k views</p>
+                                </div>
+                            </div>
+
+                            <!-- Suggestion 2 -->
+                            <div class="suggestion-item-video" onclick="loadVideo('Rook vs Minor Piece', 'INTERMEDIATE', '16 min', 'Endgames', 'Trading and technique in rook endgames')">
+                                <div class="suggestion-thumbnail">
+                                    <div class="suggestion-icon">♜</div>
+                                    <span class="suggestion-time">16:45</span>
+                                </div>
+                                <div class="suggestion-details">
+                                    <h4>Rook vs Minor Piece</h4>
+                                    <p class="suggestion-meta">Intermediate • 2.1k views</p>
+                                </div>
+                            </div>
+
+                            <!-- Suggestion 3 -->
+                            <div class="suggestion-item-video" onclick="loadVideo('Two Rooks vs Queen', 'ADVANCED', '20 min', 'Endgames', 'Coordination tactics with two rooks')">
+                                <div class="suggestion-thumbnail">
+                                    <div class="suggestion-icon">♜</div>
+                                    <span class="suggestion-time">20:10</span>
+                                </div>
+                                <div class="suggestion-details">
+                                    <h4>Two Rooks vs Queen</h4>
+                                    <p class="suggestion-meta">Advanced • 4.8k views</p>
+                                </div>
+                            </div>
+
+                            <!-- Suggestion 4 -->
+                            <div class="suggestion-item-video" onclick="loadVideo('Practical Endgame Tips', 'BEGINNER', '14 min', 'Endgames', 'Essential endgame principles for every player')">
+                                <div class="suggestion-thumbnail">
+                                    <div class="suggestion-icon">♙</div>
+                                    <span class="suggestion-time">14:20</span>
+                                </div>
+                                <div class="suggestion-details">
+                                    <h4>Practical Endgame Tips</h4>
+                                    <p class="suggestion-meta">Beginner • 9.7k views</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn-explore-all">Explore All Lessons</button>
+                    </div>
+                </aside>
+            </div>
         </div>
     </div>
 
