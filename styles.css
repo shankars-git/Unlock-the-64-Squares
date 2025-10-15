@@ -1611,13 +1611,3 @@ body {
     font-weight: 600;
     cursor: pointer;
 }
-
-/* Interactive Practice Detail Page Styles */
-.interactive-practice-container { ... }
-.large-chessboard { ... }
-.practice-stats-detail { ... }
-
-/* Blog/Article Detail Page Styles */
-.article-container { ... }
-.article-hero { ... }
-.article-content { ... }
